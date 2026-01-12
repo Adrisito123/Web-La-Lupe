@@ -1,0 +1,226 @@
+/* Importar variables principales */
+@import url('styles.css'); /* Esto asume que styles.css está en la misma carpeta */
+
+/* --- Estilos Comunes de Página (Menu y Promociones) --- */
+
+.menu-page, .promotions-page {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 5%;
+}
+
+.menu-page h1, .promotions-page h1 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-texto);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.active-nav {
+    color: var(--color-principal) !important;
+    font-weight: 700;
+}
+
+/* --- Estilos del Menú (RF-01) --- */
+
+.category-filter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ccc;
+}
+
+.category-filter a {
+    text-decoration: none;
+    color: var(--color-texto);
+    padding: 10px 20px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.category-filter a:hover,
+.category-filter a.active-category {
+    color: var(--color-principal);
+    border-bottom: 3px solid var(--color-principal);
+}
+
+.product-category h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--color-principal);
+    padding-left: 10px;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    padding: 10px 15px 5px;
+}
+
+.product-card .description {
+    padding: 0 15px 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.price-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--color-fondo);
+}
+
+.price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-principal);
+}
+
+.add-to-cart-btn {
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #e53900;
+}
+
+/* --- Carrito Flotante (RF-02) --- */
+.floating-cart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 280px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 950;
+    border-top: 5px solid var(--color-secundario);
+}
+
+.floating-cart h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.cart-total {
+    font-weight: 700;
+    color: var(--color-principal);
+    font-size: 1.1rem;
+}
+
+.floating-cart .cta-button {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* --- Estilos de Promociones --- */
+.subtitle {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.promotion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.promo-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+}
+
+.primary-promo {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+.primary-promo .cta-button {
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    margin-top: 20px;
+}
+
+.primary-promo .cta-button:hover {
+    background-color: #ffc400;
+}
+
+.badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.promo-link {
+    display: block;
+    margin-top: 15px;
+    color: var(--color-principal);
+    text-decoration: underline;
+}
+
+/* --- Responsive (RNF-01) --- */
+@media (max-width: 900px) {
+    .floating-cart {
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .menu-page {
+        margin-bottom: 150px; /* Espacio para el carrito en móvil */
+    }
+}

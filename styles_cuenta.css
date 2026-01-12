@@ -1,0 +1,219 @@
+/* Importar las variables y estilos base de styles.css si no se usan frameworks
+   Para este ejemplo, incluimos las variables y estilos del header/footer aquí */
+
+:root {
+    --color-principal: #FF4500;
+    --color-secundario: #FFD700;
+    --color-fondo: #F5F5F5;
+    --color-texto: #2C3E50;
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Estilos del Header y Footer (Reutilizados de styles.css) --- */
+
+.main-header, .main-footer {
+    /* Incluir los estilos del header y footer de styles.css aquí
+       o enlazar styles.css en mi_cuenta.html si quieres reutilizar el código */
+    background-color: #fff;
+    color: var(--color-texto);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-principal);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--color-texto);
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.cart-btn {
+    background-color: var(--color-principal);
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.main-footer {
+    background-color: var(--color-texto);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    position: relative; /* Ajuste para asegurar que el footer esté debajo del contenido */
+    margin-top: auto;
+}
+
+.main-footer a {
+    color: var(--color-principal);
+    text-decoration: none;
+}
+
+/* --- Estilos Específicos de Mi Cuenta --- */
+
+.account-main-content {
+    display: flex;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+.sidebar-nav {
+    flex: 0 0 250px; /* Ancho fijo para la barra lateral */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.sidebar-nav h2 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--color-fondo);
+    padding-bottom: 10px;
+}
+
+.sidebar-nav a {
+    display: block;
+    text-decoration: none;
+    color: var(--color-texto);
+    padding: 10px 0;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: background-color 0.2s;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+    background-color: var(--color-fondo);
+    color: var(--color-principal);
+    padding-left: 10px;
+}
+
+.account-details-section {
+    flex-grow: 1;
+}
+
+.account-details-section h1 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* --- Widget de Puntos (RF-04) --- */
+.points-widget {
+    background-color: var(--color-secundario); /* Amarillo para destacar */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.points-widget .icon {
+    font-size: 2rem;
+    display: block;
+}
+
+.points-widget .points-count {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-principal);
+    margin: 5px 0;
+}
+
+/* --- Formulario de Datos --- */
+.data-form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.data-form-container h2 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: var(--color-fondo); /* Fondo gris claro para campos de solo lectura */
+    color: var(--color-texto);
+    cursor: default;
+}
+
+.edit-button {
+    background-color: var(--color-principal);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.edit-button:hover {
+    background-color: #e53900;
+}
+
+/* --- Responsive (RNF-01) --- */
+@media (max-width: 768px) {
+    .account-main-content {
+        flex-direction: column;
+        margin: 15px auto;
+        padding: 0 10px;
+        gap: 20px;
+    }
+
+    .sidebar-nav {
+        flex: 1 1 auto;
+    }
+}

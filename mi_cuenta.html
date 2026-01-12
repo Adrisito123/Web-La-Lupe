@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cuenta | La Lupe</title>
+    <link rel="stylesheet" href="styles_cuenta.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo"><a href="index.html">LA LUPE</a></div>
+<nav class="main-nav">
+    <a href="menu.html">Menú</a>
+    <a href="promociones.html">Promociones</a>
+    <a href="mi_cuenta.html">Mi Cuenta</a> 
+    <button class="cart-btn">🛒 Carrito (3)</button>
+</nav>
+    </header>
+
+    <main class="account-main-content">
+        <aside class="sidebar-nav">
+            <h2>Gestión de Cliente</h2>
+            <a href="mi_cuenta.html" class="active">Datos Personales</a>
+            <a href="#">Historial de Pedidos</a>
+            <a href="#">Direcciones Guardadas</a>
+            <a href="#" class="logout-btn">Cerrar Sesión</a>
+        </aside>
+
+        <section class="account-details-section">
+            <h1>Datos Personales</h1>
+
+            <div class="points-widget">
+                <span class="icon">✨</span>
+                <p>Tu saldo de fidelidad actual es de</p>
+                <p class="points-count">185 Puntos</p>
+                <small>Equivalente a 1.85€ de descuento en tu próximo pedido.</small>
+            </div>
+            
+            <div class="data-form-container">
+                <h2>Información de Contacto</h2>
+
+                <div class="input-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" value="Andrea López" readonly>
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" value="andrea.lopez@example.com" readonly>
+                </div>
+                
+                <div class="input-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" value="655 123 456" readonly>
+                </div>
+
+                <button class="edit-button">Editar Datos</button>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="main-footer">
+        <p>&copy; 2024 La Lupe. | <a href="#legal">Aviso Legal</a></p>
+    </footer>
+</body>
+</html>

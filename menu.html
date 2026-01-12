@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Completo | La Lupe</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles_menu.css"> <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo"><a href="index.html">LA LUPE</a></div>
+        <nav class="main-nav">
+            <a href="menu.html" class="active-nav">Menú</a>
+            <a href="promociones.html">Promociones</a>
+            <a href="mi_cuenta.html">Mi Cuenta</a> 
+            <button class="cart-btn">🛒 Carrito (0)</button>
+        </nav>
+    </header>
+
+    <main class="menu-page">
+        <h1>El Menú de La Lupe</h1>
+        
+        <nav class="category-filter">
+            <a href="#hamburguesas" class="active-category">Hamburguesas</a>
+            <a href="#complementos">Complementos</a>
+            <a href="#bebidas">Bebidas</a>
+            <a href="#postres">Postres</a>
+        </nav>
+
+        <section id="hamburguesas" class="product-category">
+            <h2>Hamburguesas Clásicas</h2>
+            <div class="product-list">
+                <div class="product-card">
+                    <img src="https://imgs.search.brave.com/NpNMzfgMavQCqEJA3LNen7_BPxkg8-V-9wyYyOeMCb8/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9hZGFt/c2Zhcm1zLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMy8w/My9DbGFzc2ljLUhh/bWJ1cmdlci5qcGc" alt="The Classic Burger">
+                    <h3>The Classic</h3>
+                    <p class="description">Doble carne de res, queso cheddar, pepinillos y salsa de la casa.</p>
+                    <div class="price-action">
+                        <span class="price">9.95€</span>
+                        <button class="add-to-cart-btn">Añadir 🛒</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://imgs.search.brave.com/-cPm082BkNrA0nWNNH2uTVZW645zGxAY14Atv1HVs4A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cy4x/MjNyZi5jb20vNDUw/d20vbmlraWxpdG92/L25pa2lsaXRvdjE5/MTEvbmlraWxpdG92/MTkxMTAwMTE3LzEz/NDA4NzIyNC1kZWxp/Y2lvc2EtaGFtYnVy/Z3Vlc2EtZnJlc2Nh/LWNvbi1hbGIlQzMl/QjNuZGlnYXMtcXVl/c28tdG9tYXRlLWNl/Ym9sbGEteS1sZWNo/dWdhLXNvYnJlLW1l/c2EtZGUtbWFkZXJh/LXkuanBnP3Zlcj02" alt="Chicken Crispy Burger">
+                    <h3>Chicken Crispy</h3>
+                    <p class="description">Pollo crujiente, bacon, lechuga y mayonesa de ajo.</p>
+                    <div class="price-action">
+                        <span class="price">8.50€</span>
+                        <button class="add-to-cart-btn">Añadir 🛒</button>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <aside class="floating-cart">
+            <h3>Tu Pedido</h3>
+            <div class="cart-summary">
+                <p>3 Productos</p>
+                <p class="cart-total">Total: 28.40€</p>
+            </div>
+            <a href="checkout.html" class="cta-button">Finalizar Pedido</a>
+        </aside>
+
+    </main>
+    
+    <footer class="main-footer">
+        <p>&copy; 2024 La Lupe. | <a href="#legal">Aviso Legal</a></p>
+    </footer>
+</body>
+</html>

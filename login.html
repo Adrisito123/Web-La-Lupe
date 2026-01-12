@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Cliente | La Lupe</title>
+    <link rel="stylesheet" href="styles_login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="login-container">
+        <h1 class="logo-title">LA LUPE</h1>
+        
+        <div class="tabs">
+            <button class="tab-button active" onclick="showForm('login')">Iniciar Sesión</button>
+            <button class="tab-button" onclick="showForm('register')">Crear Cuenta</button>
+        </div>
+
+        <form id="login-form" class="form-content active-form">
+            <h2>Accede a tus Pedidos y Puntos</h2>
+            
+            <div class="input-group">
+                <label for="login-email">Correo Electrónico</label>
+                <input type="email" id="login-email" name="email" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="login-password">Contraseña</label>
+                <input type="password" id="login-password" name="password" required>
+            </div>
+            
+            <button type="submit" class="submit-button">Entrar</button>
+            <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+        </form>
+
+        <form id="register-form" class="form-content">
+            <h2>Acumula Puntos Hoy Mismo</h2>
+            
+            <div class="input-group">
+                <label for="reg-name">Nombre Completo</label>
+                <input type="text" id="reg-name" name="name" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="reg-email">Correo Electrónico</label>
+                <input type="email" id="reg-email" name="email" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="reg-password">Contraseña</label>
+                <input type="password" id="reg-password" name="password" required>
+            </div>
+            
+            <button type="submit" class="submit-button">Registrarme</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Función para cambiar de pestaña (Login/Registro)
+            window.showForm = function(formId) {
+                document.querySelectorAll('.form-content').forEach(form => {
+                    form.classList.remove('active-form');
+                });
+                document.querySelectorAll('.tab-button').forEach(button => {
+                    button.classList.remove('active');
+                });
+
+                document.getElementById(formId + '-form').classList.add('active-form');
+                
+                const targetButton = document.querySelector(`.tab-button[onclick*="${formId}"]`);
+                if (targetButton) {
+                    targetButton.classList.add('active');
+                }
+            };
+
+            // 1. Manejo del Login (Iniciar Sesión)
+            const loginForm = document.getElementById('login-form');
+            loginForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Detiene el envío del formulario
+                
+                // Simulación de inicio de sesión exitoso
+                alert('Inicio de sesión exitoso. Redirigiendo a la página principal...');
+                
+                // Redirección al Index.html
+                window.location.href = 'index.html'; 
+            });
+
+            // 2. Manejo del Registro (Crear Cuenta)
+            const registerForm = document.getElementById('register-form');
+            registerForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Detiene el envío del formulario
+                
+                // Simulación de registro exitoso
+                alert('Registro de cuenta exitoso. Ahora iniciarás sesión y serás redirigido...');
+                
+                // Redirección al Index.html
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+</html>
