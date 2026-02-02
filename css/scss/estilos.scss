@@ -1,0 +1,13 @@
+@import 'variables';
+
+body {
+    font-family: $fuente-principal;
+    background-color: $color-fondo;
+    margin: 0;
+    padding: 20px;
+}
+
+@import 'admin';
+@import 'menu';
+@import 'login';
+@import 'register';

@@ -1,0 +1,25 @@
+// Reutilizamos el contenedor del login para centrarlo todo
+.register-body {
+    @extend .login-body; // Esto copia el flexbox y el fondo del login
+}
+
+.register-card {
+    @extend .login-card; // Copia el diseño de la tarjeta blanca
+    max-width: 450px;    // Un poco más ancha porque el registro suele pedir más datos
+    
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; // Dos columnas para nombre y apellidos
+        gap: 10px;
+        
+        @media (max-width: 480px) {
+            grid-template-columns: 1fr; // En móvil se pone una columna
+        }
+    }
+
+    p.terminos {
+        font-size: 0.8em;
+        color: #777;
+        margin: 15px 0;
+    }
+}

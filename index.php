@@ -11,14 +11,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Buscamos al usuario en la tabla que creaste
-    $sql = "SELECT id_usuario, nombre, password, rol FROM usuarios WHERE email = '$email'";
+    $sql = "SELECT id, nombre, password, rol FROM usuarios WHERE email = '$email'";
     $resultado = mysqli_query($conexion, $sql);
     
     if ($usuario = mysqli_fetch_assoc($resultado)) {
         // Verificamos la contraseña (asumiendo que usas password_hash en el futuro)
         // Por ahora, para probar, compararemos texto plano, pero cámbialo a password_verify después
         if (password_verify($password, $usuario['password'])) {
-            $_SESSION['usuario_id'] = $usuario['id_usuario'];
+            $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['nombre'] = $usuario['nombre'];
             $_SESSION['rol'] = $usuario['rol'];
 
@@ -38,28 +38,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login - Web La Lupe</title>
+    <title>Login - La Lupe</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
-    <div class="login-container">
-        <h1>Bienvenido a La Lupe</h1>
+<body class="login-body"> <div class="login-card">
+        <img src="img/logo.png" alt="La Lupe" style="width: 80px; margin-bottom: 10px;">
+        <h2>Iniciar Sesión</h2>
         
-        <?php if($error != ""): ?>
-            <p style="color: red;"><?php echo $error; ?></p>
-        <?php endif; ?>
-
         <form action="index.php" method="POST">
-            <label>Email:</label>
-            <input type="email" name="email" required>
-            
-            <label>Contraseña:</label>
-            <input type="password" name="password" required>
-            
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
             <button type="submit">Entrar</button>
         </form>
-        
-        <p>¿No tienes cuenta? <a href="registro.php">Regístrate aquí</a></p>
+
+        <div class="links">
+            <p>¿No tienes cuenta? <a href="registro.php">Regístrate aquí</a></p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+            <p><a href="menu.php" class="invitado">Entrar como invitado</a></p>
+        </div>
     </div>
+
 </body>
 </html>

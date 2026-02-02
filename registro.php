@@ -36,18 +36,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Registro - La Lupe</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
-<body>
-    <div class="login-container">
-        <h1>Únete a La Lupe</h1>
-        <p><?php echo $mensaje; ?></p>
+<body class="register-body">
+
+    <div class="register-card">
+        <h2>Crea tu cuenta</h2>
+        <p>Únete a la familia de La Lupe</p>
         
         <form action="registro.php" method="POST">
             <input type="text" name="nombre" placeholder="Nombre completo" required>
             <input type="email" name="email" placeholder="Correo electrónico" required>
             <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit">Registrarse</button>
+            <input type="password" name="confirm_password" placeholder="Repite la contraseña" required>
+            
+            <p class="terminos">Al registrarte, aceptas nuestros términos y condiciones.</p>
+            
+            <button type="submit">Registrarme ahora</button>
         </form>
-        <p><a href="index.php">Volver al login</a></p>
+
+        <div class="links">
+            <p>¿Ya tienes cuenta? <a href="index.php">Inicia sesión</a></p>
+        </div>
     </div>
+
 </body>
 </html>
