@@ -1,0 +1,18 @@
+@use 'variables' as *;
+@use 'menu';
+@use 'login';
+body {
+    margin: 0;
+    font-family: $fuente-principal;
+    background-color: $color-fondo;
+}
+
+header {
+    background: $color-oscuro;
+    color: $color-blanco;
+    padding: 20px;
+    text-align: center;
+    span {
+        color: $color-primario;
+    } // El logo tendrá una parte naranja
+}

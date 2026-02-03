@@ -1,0 +1,17 @@
+@use "sass:color";
+$color-primario: #ff5722;
+$color-secundario: #00bcd4;
+$color-oscuro: #212121;
+$color-fondo: #f5f5f5;
+$color-blanco: #ffffff;
+$color-exito: #2e7d32;
+$color-error: #c62828;
+$fuente-principal: 'Poppins',
+sans-serif;
+$redondeado: 15px;
+$sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
+@mixin flex-centro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
