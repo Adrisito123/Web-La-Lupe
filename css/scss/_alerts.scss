@@ -1,0 +1,30 @@
+.alerta {
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    animation: slideDown 0.5s ease-out;
+    &.error {
+        background-color: lighten($color-error, 35%);
+        color: $color-error;
+        border: 1px solid $color-error;
+    }
+    &.exito {
+        background-color: lighten($color-exito, 35%);
+        color: $color-exito;
+        border: 1px solid $color-exito;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

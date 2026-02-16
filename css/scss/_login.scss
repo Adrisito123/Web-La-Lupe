@@ -1,69 +1,51 @@
-.login-body {
+@use 'variables' as *;
+.auth-pantalla {
+    min-height: 100vh; 
     display: flex;
-    justify-content: center; // Centrado horizontal
-    align-items: center;     // Centrado vertical
-    min-height: 100vh;       // Ocupa toda la altura de la pantalla
-    background: $color-fondo;
-    margin: 0;
+    align-items: center; 
+    justify-content: center; 
+    background-color: $color-fondo;
+}
 
-    .login-card {
-        background: white;
-        padding: 40px;
+.auth-caja {
+    background: $color-blanco;
+    padding: 40px;
+    width: 350px;
+    border-radius: $redondeado;
+    border-top: 8px solid $color-primario; 
+    text-align: center;
+    h2 {
+        color: $color-oscuro;
+        margin-bottom: 20px;
+        font-family: $fuente-principal;
+    }
+    input {
         width: 100%;
-        max-width: 350px; // Tamaño mediano
-        border-radius: 10px;
-        box-shadow: $sombra;
-        text-align: center;
-
-        h2 {
-            margin-bottom: 25px;
-            color: $color-oscuro;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box; // Evita que se salga del borde
-            
-            &:focus {
-                outline: none;
-                border-color: $color-primario;
-            }
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            background: $color-primario;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-
-            &:hover {
-                background: darken($color-primario, 10%);
-            }
-        }
-
-        .links {
-            margin-top: 20px;
-            font-size: 0.9em;
-            a {
-                color: $color-primario;
-                text-decoration: none;
-                &:hover { text-decoration: underline; }
-            }
+        padding: 12px;
+        margin: 10px 0;
+        border: 2px solid #eee;
+        border-radius: 8px;
+        box-sizing: border-box; 
+    }
+    .btn-colorido {
+        width: 100%;
+        background: $color-primario;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1rem;
+        &:hover {
+            background: $color-oscuro;
         }
     }
-    .invitado {
-        color: #666 !important;
-        font-weight: bold;
-        font-size: 0.9em;
-        &:hover { color: $color-oscuro !important; }
+    .link-cambio {
+        display: block;
+        margin-top: 15px;
+        color: $color-secundario;
+        text-decoration: none;
+        font-size: 0.9rem;
     }
 }

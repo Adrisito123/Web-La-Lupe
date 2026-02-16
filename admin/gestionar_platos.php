@@ -1,7 +1,12 @@
 <?php
 include '../db.php';
-// Aquí podrías añadir un check de sesión para que solo entre el admin
 
+session_start();
+// Aquí podrías añadir un check de sesión para que solo entre el admin
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
+    header("Location: ../index.php?error=acceso_denegado");
+    exit();
+}
 // Lógica para INSERTAR
 if (isset($_POST['añadir'])) {
     $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);

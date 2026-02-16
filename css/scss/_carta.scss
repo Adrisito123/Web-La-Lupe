@@ -1,0 +1,97 @@
+.main-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 40px;
+    color: $color-oscuro;
+}
+
+.subtitle {
+    color: #888;
+    margin-bottom: 50px;
+}
+
+.menu-section {
+    margin-bottom: 60px;
+    .category-header {
+        background: $color-oscuro;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+        font-size: 1.4em;
+        i {
+            color: $verde-lima;
+            margin-right: 10px;
+        }
+    }
+}
+
+.menu-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 20px;
+}
+
+.menu-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #eee;
+    transition: all 0.2s;
+    &:hover {
+        border-color: $color-primario;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    .item-info {
+        h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.1em;
+            color: $color-oscuro;
+        }
+        p {
+            margin: 0;
+            font-size: 0.85em;
+            color: #777;
+            line-height: 1.4;
+        }
+    }
+    .item-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        .price {
+            font-weight: 800;
+            color: $color-primario;
+            font-size: 1.1em;
+        }
+        .add-btn {
+            background: $verde-lima;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: $color-oscuro;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:hover {
+                background: darken($verde-lima, 10%);
+            }
+        }
+    }
+}
+
+// Ajuste para móviles
+@media (max-width: 600px) {
+    .menu-list {
+        grid-template-columns: 1fr;
+    }
+    .menu-item {
+        padding: 15px;
+    }
+}

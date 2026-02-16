@@ -1,13 +1,8 @@
-@import 'variables';
-
+@use 'variables' as *;
+@use 'menu';
+@use 'login';
 body {
+    margin: 0;
     font-family: $fuente-principal;
     background-color: $color-fondo;
-    margin: 0;
-    padding: 20px;
 }
-
-@import 'admin';
-@import 'menu';
-@import 'login';
-@import 'register';

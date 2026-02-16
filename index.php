@@ -1,35 +1,39 @@
 <?php
-// 1. Incluimos la conexión que creamos antes
+session_start();
 include 'db.php';
-session_start(); // Iniciamos sesión para recordar al usuario
 
-$error = ""; // Variable para mensajes de error
+// Si el usuario ya está logueado, lo mandamos al menú directamente
+if (isset($_SESSION['usuario_id'])) {
+    header("Location: menu.php");
+    exit();
+}
 
-// 2. Lógica al pulsar el botón de "Entrar"
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$error_msg = "";
+
+// Lógica de inicio de sesión
+if (isset($_POST['entrar'])) {
     $email = mysqli_real_escape_string($conexion, $_POST['email']);
     $password = $_POST['password'];
 
-    // Buscamos al usuario en la tabla que creaste
-    $sql = "SELECT id, nombre, password, rol FROM usuarios WHERE email = '$email'";
-    $resultado = mysqli_query($conexion, $sql);
-    
-    if ($usuario = mysqli_fetch_assoc($resultado)) {
-        // Verificamos la contraseña (asumiendo que usas password_hash en el futuro)
-        // Por ahora, para probar, compararemos texto plano, pero cámbialo a password_verify después
+    $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+    $res = mysqli_query($conexion, $sql);
+
+    if ($res && mysqli_num_rows($res) > 0) {
+        $usuario = mysqli_fetch_assoc($res);
+        
+        // Verificamos la contraseña (asumiendo que usaste password_hash en el registro)
         if (password_verify($password, $usuario['password'])) {
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['nombre'] = $usuario['nombre'];
-            $_SESSION['rol'] = $usuario['rol'];
+            $_SESSION['rol'] = $usuario['rol']; // 'admin' o 'cliente'
 
-            // Si es admin, va a la gestión de platos, si no, al menú
-            header("Location: menu.php"); 
+            header("Location: menu.php?login=success");
             exit();
         } else {
-            $error = "Contraseña incorrecta.";
+            $error_msg = "Contraseña incorrecta.";
         }
     } else {
-        $error = "El correo no está registrado.";
+        $error_msg = "El correo electrónico no está registrado.";
     }
 }
 ?>
@@ -38,25 +42,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - La Lupe</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="login-body"> <div class="login-card">
-        <img src="img/logo.png" alt="La Lupe" style="width: 80px; margin-bottom: 10px;">
-        <h2>Iniciar Sesión</h2>
-        
+<body>
+
+   <div class="auth-pantalla">
+    <div class="auth-caja">
+        <div class="login-logo">
+            <i class="fas fa-pepper-hot"></i>
+            <h1>La <span>Lupe</span></h1>
+        </div>
+
+        <?php if ($error_msg): ?>
+            <div class="alerta alerta-error">
+                <i class="fas fa-times-circle"></i> <?php echo $error_msg; ?>
+            </div>
+        <?php endif; ?>
+
         <form action="index.php" method="POST">
             <input type="email" name="email" placeholder="Correo electrónico" required>
             <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit">Entrar</button>
+            <button type="submit" name="entrar" class="btn-colorido">Entrar</button>
         </form>
 
-        <div class="links">
-            <p>¿No tienes cuenta? <a href="registro.php">Regístrate aquí</a></p>
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
-            <p><a href="menu.php" class="invitado">Entrar como invitado</a></p>
+        <div class="auth-links">
+            <p>¿No tienes cuenta? <a href="registro.php" class="link-cambio">Regístrate</a></p>
+            <span class="separador">o</span>
+            <a href="menu.php" class="link-invitado">Ver el menú como invitado</a>
         </div>
     </div>
+</div>
 
 </body>
 </html>
