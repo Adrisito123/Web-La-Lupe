@@ -2,7 +2,7 @@
 session_start();
 include 'db.php';
 $esAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
-$nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : "Gourmet";
+$nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : "Invitado";
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +31,12 @@ $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : "Gourmet";
                     <span class="cart-badge">0</span>
                 </a>
 
+                <a href="logout.php" class="logout-pill" title="Cerrar Sesión">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+
                 <?php if ($esAdmin): ?>
-                    <a href="admin/nuevo_producto.php" class="user-pill">
+                    <a href="admin/nuevo_producto.php" class="user-pill" style="border-color: #00bcd4;">
                         <i class="fas fa-tools" style="color: #00bcd4;"></i>
                     </a>
                 <?php endif; ?>

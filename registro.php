@@ -86,8 +86,6 @@ if (isset($_POST['registrar'])) {
 
             <div style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px;">
                 <p>¿Ya tienes cuenta? <a href="index.php" class="link-cambio">Inicia sesión</a></p>
-                <div style="margin: 10px 0; color: #bbb;">o</div>
-                <a href="menu.php" style="color: #666; text-decoration: none; font-size: 0.9rem;">Volver al menú</a>
             </div>
         </div>
     </div>

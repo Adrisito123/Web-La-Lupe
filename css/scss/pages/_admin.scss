@@ -1,0 +1,20 @@
+@use 'variables' as v;
+.admin-page {
+    background: v.$color-gris-claro;
+    padding: 60px 20px;
+    min-height: 100vh;
+}
+
+.form-container {
+    @include v.card-base;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.btn-admin-submit {
+    @include v.btn-base; 
+    background: v.$color-primario;
+    color: white;
+    width: 100%;
+}

@@ -1,6 +1,13 @@
 @use 'variables' as *;
-@use 'menu';
-@use 'login';
+@use 'layout/header';   
+@use 'layout/footer';
+@use 'components/cards';
+@use 'pages/menu';
+@use 'pages/carta';
+@use 'pages/admin';
+@use 'pages/alerts';
+@use 'pages/login';
+@use 'pages/register';
 body {
     margin: 0;
     font-family: $fuente-principal;

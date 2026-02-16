@@ -1,0 +1,51 @@
+@use 'variables' as *;
+.auth-pantalla {
+    min-height: 100vh; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    background-color: $color-fondo;
+}
+
+.auth-caja {
+    background: $color-blanco;
+    padding: 40px;
+    width: 350px;
+    border-radius: $redondeado;
+    border-top: 8px solid $color-primario; 
+    text-align: center;
+    h2 {
+        color: $color-oscuro;
+        margin-bottom: 20px;
+        font-family: $fuente-principal;
+    }
+    input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 2px solid #eee;
+        border-radius: 8px;
+        box-sizing: border-box; 
+    }
+    .btn-colorido {
+        width: 100%;
+        background: $color-primario;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 1rem;
+        &:hover {
+            background: $color-oscuro;
+        }
+    }
+    .link-cambio {
+        display: block;
+        margin-top: 15px;
+        color: $color-secundario;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+}
