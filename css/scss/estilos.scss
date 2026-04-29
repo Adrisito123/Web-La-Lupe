@@ -1,15 +1,16 @@
-@use 'variables' as *;
-@use 'layout/header';   
+// 1. Configuración
+@use 'variables';
+// 2. Base y Layout
+@use 'base/reset';
+@use 'layout/header';
 @use 'layout/footer';
+// 3. Componentes
+@use 'components/buttons';
+@use 'components/alerts';
 @use 'components/cards';
-@use 'pages/menu';
+// 4. Páginas específicas
+@use 'pages/login';
 @use 'pages/carta';
 @use 'pages/admin';
-@use 'pages/alerts';
-@use 'pages/login';
 @use 'pages/register';
-body {
-    margin: 0;
-    font-family: $fuente-principal;
-    background-color: $color-fondo;
-}
+@use 'pages/menu';

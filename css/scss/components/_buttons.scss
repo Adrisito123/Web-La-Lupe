@@ -1,0 +1,16 @@
+@use "sass:color";
+@use '../variables' as v;
+.btn-colorido {
+    background: v.$color-primario;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    &:hover {
+        background: color.adjust(v.$color-primario, $lightness: -10%);
+        transform: scale(1.05);
+    }
+}

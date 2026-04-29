@@ -1,0 +1,32 @@
+@use "sass:color";
+@use '../variables' as v;
+.alerta {
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    animation: slideDown 0.5s ease-out;
+    &.error {
+        background-color: color.adjust(v.$color-error, $lightness: 35%);
+        color: v.$color-error;
+        border: 1px solid v.$color-error;
+    }
+    &.exito {
+        background-color: color.adjust(v.$color-exito, $lightness: 35%);
+        color: v.$color-exito;
+        border: 1px solid v.$color-exito;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

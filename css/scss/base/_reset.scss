@@ -1,0 +1,18 @@
+@use '../variables' as v;
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: v.$fuente-principal;
+    background-color: v.$color-fondo;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}

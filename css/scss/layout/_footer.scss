@@ -1,0 +1,23 @@
+@use '../variables' as v;
+.pie-principal {
+    background-color: #2c3e50;
+    color: white;
+    padding: 50px 0 20px;
+    margin-top: 60px;
+    .pie-contenido {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+    .columna h3 {
+        color: v.$color-primario;
+        margin-bottom: 15px;
+    }
+    .pie-final {
+        text-align: center;
+        border-top: 1px solid #3e4f5f;
+        padding-top: 20px;
+        font-size: 13px;
+        color: #bdc3c7;
+    }
+}

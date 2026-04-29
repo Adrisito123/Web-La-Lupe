@@ -1,7 +1,7 @@
 <?php
 // Detectar si estamos en local o en el servidor
 if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['HTTP_HOST'] == 'localhost') {
-    // CONFIGURACIÓN LOCAL (XAMPP)
+    // CONFIGURACIÓN LOCAL 
     $servidor = "localhost";
     $usuario  = "root";
     $password = ""; 
@@ -15,4 +15,10 @@ if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['HTTP_HOST'] == 'localhos
 }
 
 $conexion = mysqli_connect($servidor, $usuario, $password, $base_datos);
+if (!$conexion) {
+    die("Fallo total de conexión: " . mysqli_connect_error());
+}
+
+// Asegurar que las tildes y ñ se lean correctamente
+mysqli_set_charset($conexion, "utf8mb4");
 ?>

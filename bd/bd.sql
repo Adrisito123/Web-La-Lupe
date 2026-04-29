@@ -32,12 +32,37 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   FOREIGN KEY (`usuario_id`) REFERENCES `usuarios`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- Insertar un administrador de prueba (la contraseña es 'admin123' hasheada)
+ALTER TABLE `platos` ADD `categoria` VARCHAR(50) DEFAULT 'General' AFTER `imagen`;
+
+-- Insertar un administrador de prueba (la contraseña es 'admin123')
 INSERT INTO `usuarios` (`nombre`, `email`, `password`, `rol`) VALUES 
 ('Admin La Lupe', 'admin@lalupe.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
 
--- Insertar unos platos de ejemplo
-INSERT INTO `platos` (`nombre`, `descripcion`, `precio`, `imagen`) VALUES 
-('Tacos al Pastor', 'Deliciosos tacos de cerdo marinado con piña.', 8.50, 'tacos.jpg'),
-('Enchiladas Verdes', 'Tortillas rellenas de pollo con salsa verde suiza.', 10.00, 'enchiladas.jpg'),
-('Guacamole Especial', 'Aguacate fresco con totopos artesanales.', 6.50, 'guacamole.jpg');
+-- Limpiar platos anteriores
+TRUNCATE TABLE `platos`;
+
+-- Insertar platos desde la carta real
+INSERT INTO `platos` (`nombre`, `descripcion`, `precio`, `categoria`, `imagen`) VALUES 
+-- BAGUETTES
+('Baguette La Lupe', 'Carne kebab, lechuga, tomate, cebolla, salsa yogurt y picante (opcional).', 4.00, 'Baguettes', 'baguette_lupe.jpg'),
+('Baguette Pollo al Mojo Picón', 'Pollo marinado con salsa de mojo picón canario.', 3.00, 'Baguettes', 'baguette_mojo.jpg'),
+('Baguette San Bernardo', 'Salchicha, tortilla y queso fundido.', 3.00, 'Baguettes', 'baguette_san_bernardo.jpg'),
+
+-- PERRITOS
+('Perrito Lechero', 'Salchicha grande, queso, huevo, mostaza, ketchup y mahonesa.', 3.00, 'Perritos', 'perrito_lechero.jpg'),
+
+-- HAMBURGUESAS
+('Hamburguesa Especial del Lobato', '2,5 Kg aprox. Queso, doble de carne, 4 huevos fritos, bacon, tomate, lechuga y cebolla.', 14.50, 'Hamburguesas', 'hamburguesa_lobato.jpg'),
+('Hamburguesa Gigante de Pollo', '1,5 Kg aprox. Pollo, lechuga, tomate, cebolla y queso.', 9.50, 'Hamburguesas', 'hamburguesa_gigante.jpg'),
+('Hamburguesa completa', 'Queso, huevo, lechuga, tomate y cebolla.', 3.00, 'Hamburguesas', 'hamburguesa_completa.jpg'),
+
+-- KEBAB
+('Kebab Mixto (Pollo y Ternera)', 'Carne mixta con vegetales y salsa a elegir.', 4.00, 'Kebab', 'kebab_mixto.jpg'),
+
+-- TARRINAS Y COMBINADOS
+('Sultán (Plato Combinado)', 'Patatas, carne, arroz, pique y queso.', 5.00, 'Combinados', 'plato_sultan.jpg'),
+('Patatas con Queso Fundido', 'Patatas fritas crujientes cubiertas de queso fundido.', 3.00, 'Patatas', 'patatas_queso.jpg'),
+
+-- SANDWICHS
+('Sandwich Especial de la Casa', 'Pollo, bacon, huevo, jamón, queso, lechuga, tomate, cebolla y mahonesa.', 4.50, 'Sandwichs', 'sandwich_especial.jpg');
+
