@@ -1,6 +1,6 @@
 # La Lupe - Web App
 
-Proyecto web dinámico para la gestión y visualización de un restaurante mexicano, desarrollado con PHP, MySQL y SCSS.
+Proyecto web para la gestión y visualización de un restaurante mexicano, desarrollado con PHP, MySQL y SCSS.
 
 ## Características
 * **Menú Digital:** Visualización de platos y categorías.
