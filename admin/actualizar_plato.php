@@ -7,13 +7,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
     $categoria = $_POST['categoria'];
     $precio = $_POST['precio'];
-    $imagen_nombre = $_POST['imagen_actual']; // Por defecto la que ya hay
+    $imagen_nombre = $_POST['imagen_actual']; 
 
     // Si el usuario subió una nueva foto
     if (!empty($_FILES['nueva_imagen']['name'])) {
         $ruta_carpeta = "../img/platos/";
         
-        // Borrar la imagen vieja físicamente
+        // Borrar la imagen vieja 
         if (file_exists($ruta_carpeta . $imagen_nombre)) {
             unlink($ruta_carpeta . $imagen_nombre);
         }

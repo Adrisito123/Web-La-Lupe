@@ -10,25 +10,20 @@ if (isset($_POST['registrar'])) {
     $pass = $_POST['password'];
     $confirm_pass = $_POST['confirm_password'];
 
-    // 1. Validar que las contraseñas coincidan
     if ($pass !== $confirm_pass) {
         $error_msg = "Las contraseñas no coinciden.";
     } else {
-        // 2. Comprobar si el email ya existe
         $checkEmail = mysqli_query($conexion, "SELECT id FROM usuarios WHERE email = '$email'");
         
         if (mysqli_num_rows($checkEmail) > 0) {
             $error_msg = "Este correo ya está registrado.";
         } else {
-            // 3. Encriptar contraseña y guardar
             $pass_encriptada = password_hash($pass, PASSWORD_BCRYPT);
             
-            // Por defecto, los nuevos registros son rol 'cliente'
             $sql = "INSERT INTO usuarios (nombre, email, password, rol) 
                     VALUES ('$nombre', '$email', '$pass_encriptada', 'cliente')";
 
             if (mysqli_query($conexion, $sql)) {
-                // Redirigir al login con mensaje de éxito
                 header("Location: index.php?registrado=1");
                 exit();
             } else {
@@ -49,7 +44,11 @@ if (isset($_POST['registrar'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
+    <?php if (isset($_GET['msg'])): ?>
+        <div style="background: #e2e3e5; color: #383d41; padding: 15px; margin-bottom: 20px; border: 1px solid #d6d8db; text-align: center; border-radius: 5px;">
+            <?php echo htmlspecialchars($_GET['msg']); ?>
+        </div>
+    <?php endif; ?>
     <div class="auth-pantalla">
         
         <div class="auth-caja">

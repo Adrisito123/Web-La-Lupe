@@ -1,9 +1,9 @@
 @use '../variables' as *;
 .auth-pantalla {
-    min-height: 100vh; // Toda la altura de la pantalla
+    min-height: 100vh;
     display: flex;
-    align-items: center; // Centrado vertical
-    justify-content: center; // Centrado horizontal
+    align-items: center;
+    justify-content: center;
     background-color: $color-fondo;
 }
 
@@ -12,7 +12,7 @@
     padding: 40px;
     width: 350px;
     border-radius: $redondeado;
-    border-top: 8px solid $color-primario; // Franja de color llamativa
+    border-top: 8px solid $color-primario;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     text-align: center;
     h2 {
@@ -26,7 +26,7 @@
         margin: 10px 0;
         border: 2px solid #eee;
         border-radius: 8px;
-        box-sizing: border-box; // Para que no se salga de la caja
+        box-sizing: border-box;
     }
     .btn-colorido {
         width: 100%;

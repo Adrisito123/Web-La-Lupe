@@ -2,7 +2,7 @@
 CREATE DATABASE IF NOT EXISTS `web_la_lupe` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `web_la_lupe`;
 
--- 1. Tabla de Usuarios
+-- Tabla de Usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `nombre` VARCHAR(100) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `fecha_registro` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
--- 2. Tabla de Platos (Menú)
+-- Tabla de Platos 
 CREATE TABLE IF NOT EXISTS `platos` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `nombre` VARCHAR(100) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `platos` (
   `disponible` TINYINT(1) DEFAULT 1
 ) ENGINE=InnoDB;
 
--- 3. Tabla de Pedidos (Para la Fase 3)
+-- Tabla de Pedidos 
 CREATE TABLE IF NOT EXISTS `pedidos` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `usuario_id` INT,
@@ -44,25 +44,25 @@ TRUNCATE TABLE `platos`;
 -- Insertar platos desde la carta real
 INSERT INTO `platos` (`nombre`, `descripcion`, `precio`, `categoria`, `imagen`) VALUES 
 -- BAGUETTES
-('Baguette La Lupe', 'Carne kebab, lechuga, tomate, cebolla, salsa yogurt y picante (opcional).', 4.00, 'Baguettes', 'baguette_lupe.jpg'),
-('Baguette Pollo al Mojo Picón', 'Pollo marinado con salsa de mojo picón canario.', 3.00, 'Baguettes', 'baguette_mojo.jpg'),
-('Baguette San Bernardo', 'Salchicha, tortilla y queso fundido.', 3.00, 'Baguettes', 'baguette_san_bernardo.jpg'),
+('Baguette La Lupe', 'Carne kebab, lechuga, tomate, cebolla, salsa yogurt y picante (opcional).', 4.00, 'Baguettes', 'img/platos/BL.webp'),
+('Baguette Pollo al Mojo Picón', 'Pollo marinado con salsa de mojo picón canario.', 3.00, 'Baguettes', 'img/platos/BMP.webp'),
+('Baguette San Bernardo', 'Salchicha, tortilla y queso fundido.', 3.00, 'Baguettes', 'img/platos/BSB.webp'),
 
 -- PERRITOS
-('Perrito Lechero', 'Salchicha grande, queso, huevo, mostaza, ketchup y mahonesa.', 3.00, 'Perritos', 'perrito_lechero.jpg'),
+('Perrito Lechero', 'Salchicha grande, queso, huevo, mostaza, ketchup y mahonesa.', 3.00, 'Perritos', 'img/platos/PL.webp'),
 
 -- HAMBURGUESAS
-('Hamburguesa Especial del Lobato', '2,5 Kg aprox. Queso, doble de carne, 4 huevos fritos, bacon, tomate, lechuga y cebolla.', 14.50, 'Hamburguesas', 'hamburguesa_lobato.jpg'),
-('Hamburguesa Gigante de Pollo', '1,5 Kg aprox. Pollo, lechuga, tomate, cebolla y queso.', 9.50, 'Hamburguesas', 'hamburguesa_gigante.jpg'),
-('Hamburguesa completa', 'Queso, huevo, lechuga, tomate y cebolla.', 3.00, 'Hamburguesas', 'hamburguesa_completa.jpg'),
+('Hamburguesa Especial del Lobato', '2,5 Kg aprox. Queso, doble de carne, 4 huevos fritos, bacon, tomate, lechuga y cebolla.', 14.50, 'Hamburguesas', 'img/platos/HEL.webp'),
+('Hamburguesa Gigante de Pollo', '1,5 Kg aprox. Pollo, lechuga, tomate, cebolla y queso.', 9.50, 'Hamburguesas', 'img/platos/HGP.webp'),
+('Hamburguesa completa', 'Queso, huevo, lechuga, tomate y cebolla.', 3.00, 'Hamburguesas', 'img/platos/HC.webp'),
 
 -- KEBAB
-('Kebab Mixto (Pollo y Ternera)', 'Carne mixta con vegetales y salsa a elegir.', 4.00, 'Kebab', 'kebab_mixto.jpg'),
+('Kebab Mixto (Pollo y Ternera)', 'Carne mixta con vegetales y salsa a elegir.', 4.00, 'Kebab', 'img/platos/km.webp'),
 
 -- TARRINAS Y COMBINADOS
-('Sultán (Plato Combinado)', 'Patatas, carne, arroz, pique y queso.', 5.00, 'Combinados', 'plato_sultan.jpg'),
-('Patatas con Queso Fundido', 'Patatas fritas crujientes cubiertas de queso fundido.', 3.00, 'Patatas', 'patatas_queso.jpg'),
+('Sultán (Plato Combinado)', 'Patatas, carne, arroz, pique y queso.', 5.00, 'Combinados', 'img/platos/TS.webp'),
+('Patatas con Queso Fundido', 'Patatas fritas crujientes cubiertas de queso fundido.', 3.00, 'Patatas', 'img/platos/TQ.webp'),
 
 -- SANDWICHS
-('Sandwich Especial de la Casa', 'Pollo, bacon, huevo, jamón, queso, lechuga, tomate, cebolla y mahonesa.', 4.50, 'Sandwichs', 'sandwich_especial.jpg');
+('Sandwich Especial de la Casa', 'Pollo, bacon, huevo, jamón, queso, lechuga, tomate, cebolla y mahonesa.', 4.50, 'Sandwichs', 'img/platos/SM.webp');
 

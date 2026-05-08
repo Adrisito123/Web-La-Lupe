@@ -16,7 +16,6 @@ $esAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
     <header class="cabecera-principal">
         <nav class="barra-navegacion contenedor">
             <div class="bloque-izquierdo">
@@ -30,14 +29,13 @@ $esAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
             </div>
 
             <div class="bloque-derecho">
-                <a href="mi_cuenta.php" class="enlace-cuenta">
+                <a href="perfil.php" class="enlace-cuenta">
                     <i class="fas fa-user-circle"></i>
                     <span><?php echo $nombreUsuario; ?></span>
                 </a>
 
                 <a href="carrito.php" class="boton-carrito">
                     <i class="fas fa-shopping-basket"></i>
-                    <span class="numero-carrito">0</span>
                 </a>
                 
                 <a href="logout.php" class="boton-salir">Cerrar Sesión</a>
@@ -45,26 +43,18 @@ $esAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
         </nav>
     </header>
 
-    <section class="anuncio-principal">
-        <div class="contenido-anuncio contenedor">
-            <span class="etiqueta">¡Bienvenidos!</span>
-            <h1>Sabor Real en cada <span>Bocado</span></h1>
-            <p>La mejor comida artesanal de la zona, directa a tu mesa.</p>
-            <a href="carta.php" class="boton-accion">Hacer Pedido Ahora</a>
-        </div>
-    </section>
-
-    <section class="seccion-gris">
+   <section class="seccion-gris">
         <div class="contenedor">
             <h2 class="titulo-seccion">Los más <span>Pedidos</span></h2>
             <div class="cuadricula-tendencias">
                 <?php
                 $consulta_top = "SELECT * FROM platos WHERE disponible = 1 LIMIT 4";
                 $res_top = mysqli_query($conexion, $consulta_top);
+                
                 while($item = mysqli_fetch_assoc($res_top)):
                 ?>
                 <article class="tarjeta-pequeña">
-                    <img src="img/platos/<?php echo $item['imagen']; ?>" onerror="this.src='img/default.jpg'">
+                    <img src="<?php echo $item['imagen']; ?>" alt="<?php echo $item['nombre']; ?>">
                     <h4><?php echo $item['nombre']; ?></h4>
                 </article>
                 <?php endwhile; ?>
@@ -83,15 +73,17 @@ $esAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
                 ?>
                 <div class="tarjeta-plato">
                     <div class="imagen-contenedor">
-                        <img src="img/platos/<?php echo $plato['imagen']; ?>" onerror="this.src='img/default.jpg'">
-                        <span class="categoria"><?php echo $plato['categoria']; ?></span>
+                        <img src="<?php echo $plato['imagen']; ?>">
                     </div>
                     <div class="texto-plato">
                         <h3><?php echo $plato['nombre']; ?></h3>
                         <p><?php echo substr($plato['descripcion'], 0, 60); ?>...</p>
                         <div class="pie-tarjeta">
                             <span class="precio"><?php echo $plato['precio']; ?>€</span>
-                            <button class="boton-añadir">+</button>
+                            <form action="agregar_al_carrito.php" method="POST">
+                                <input type="hidden" name="id_plato" value="<?php echo $plato['id']; ?>">
+                                <button type="submit" class="boton-añadir">+</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -108,16 +100,18 @@ $esAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
         <div class="contenedor pie-contenido">
             <div class="columna">
                 <h2 class="logotipo">LA<span>LUPE</span></h2>
-                <p>Tu restaurante de confianza.</p>
             </div>
             <div class="columna">
                 <h3>Contacto</h3>
-                <p>Calle Falsa 123</p>
-                <p>Tel: 600 000 000</p>
+                <p>C. Fernando Gavilán, 12, 11600 Ubrique, Cádiz</p>
+                <p>Tel: +34956464410</p>
             </div>
         </div>
         <div class="pie-final">
             <p>&copy; 2026 La Lupe - Todos los derechos reservados</p>
+            <nav class="links-legales">
+            <a href="licencias_privacidad/politica_privacidad.html">Política de Privacidad</a>
+        </nav>
         </div>
     </footer>
 

@@ -2,7 +2,6 @@
 session_start();
 include '../db.php';
 
-// Seguridad
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') { header("Location: ../index.php"); exit(); }
 
 $id = $_GET['id'];
@@ -24,7 +23,6 @@ $p = mysqli_fetch_assoc($res);
             
             <form action="actualizar_plato.php" method="POST" class="formulario-admin" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $p['id']; ?>">
-                <input type="hidden" name="imagen_actual" value="<?php echo $p['imagen']; ?>">
 
                 <div class="grupo-input">
                     <label>Nombre del Plato</label>
@@ -34,9 +32,13 @@ $p = mysqli_fetch_assoc($res);
                 <div class="grupo-input">
                     <label>Categoría</label>
                     <select name="categoria">
-                        <option value="entrantes" <?php if($p['categoria']=='entrantes') echo 'selected'; ?>>Entrantes</option>
-                        <option value="hamburguesas" <?php if($p['categoria']=='hamburguesas') echo 'selected'; ?>>Hamburguesas</option>
-                        <option value="bebidas" <?php if($p['categoria']=='bebidas') echo 'selected'; ?>>Bebidas</option>
+                        <option value="Baguettes" <?php if($p['categoria']=='Baguettes') echo 'selected'; ?>>Baguettes</option>
+                        <option value="Perritos" <?php if($p['categoria']=='Perritos') echo 'selected'; ?>>Perritos</option>
+                        <option value="Hamburguesas" <?php if($p['categoria']=='Hamburguesas') echo 'selected'; ?>>Hamburguesas</option>
+                        <option value="Kebab" <?php if($p['categoria']=='Kebab') echo 'selected'; ?>>Kebab</option>
+                        <option value="Combinados" <?php if($p['categoria']=='Combinados') echo 'selected'; ?>>Platos Combinados</option>
+                        <option value="Patatas" <?php if($p['categoria']=='Patatas') echo 'selected'; ?>>Patatas</option>
+                        <option value="Sandwichs" <?php if($p['categoria']=='Sandwichs') echo 'selected'; ?>>Sandwichs</option>
                     </select>
                 </div>
 
@@ -46,8 +48,6 @@ $p = mysqli_fetch_assoc($res);
                 </div>
 
                 <div class="grupo-input">
-                    <label>Imagen Actual</label>
-                    <img src="../img/platos/<?php echo $p['imagen']; ?>" width="100" style="display:block; margin-bottom:10px; border-radius:5px;">
                     <label>Cambiar Foto (dejar vacío para mantener la actual)</label>
                     <input type="file" name="nueva_imagen" accept="image/*">
                 </div>

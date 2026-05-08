@@ -128,55 +128,60 @@ $nombreUsuario = $_SESSION['nombre'];
                                         <option value="admin" <?php echo ($u['rol'] === 'admin') ? 'selected' : ''; ?>>Admin</option>
                                     </select>
                                 </form>
-                            </td>
-                            <td>
-                                <a href="borrar_usuario.php?id=<?php echo $u['id']; ?>" 
-                                class="btn-accion rojo" 
-                                onclick="return confirm('¿Seguro que quieres eliminar este usuario?')" 
-                                title="Eliminar">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
-            </section>
+                                    </td>
+                                    <td>
+                                        <a href="borrar_usuario.php?id=<?php echo $u['id']; ?>" 
+                                        class="btn-accion rojo" 
+                                        onclick="return confirm('¿Seguro que quieres eliminar este usuario?')" 
+                                        title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <?php endwhile; ?>
+                            </tbody>
+                        </table>
+                    </section>
 
-            <section id="platos" class="bloque-panel">
-                <h3><i class="fas fa-plus-circle"></i> Nuevo Plato</h3>
-                <form action="procesar_plato.php" method="POST" class="formulario-admin" enctype="multipart/form-data">
-                    <div class="grupo-input">
-                        <label>Nombre del Plato</label>
-                        <input type="text" name="nombre" required>
-                    </div>
-                    <div class="grupo-input">
-                        <label>Categoría</label>
-                        <select name="categoria" required>
-                            <?php
-                            $res_cats = mysqli_query($conexion, "SELECT DISTINCT categoria FROM platos");
-                            while($cat = mysqli_fetch_assoc($res_cats)):
-                            ?>
-                                <option value="<?php echo $cat['categoria']; ?>">
-                                    <?php echo ucfirst($cat['categoria']); ?>
-                                </option>
-                            <?php endwhile; ?>
-                        </select>
-                    </div>
-                    <div class="grupo-input">
-                        <label>Descripción Corta</label>
-                        <textarea name="descripcion" rows="2" required></textarea>
-                    </div>
-                    <div class="grupo-input">
-                        <label>Precio (€)</label>
-                        <input type="number" step="0.01" name="precio" required>
-                    </div>
-                    <div class="grupo-input">
-                        <label>Imagen del Plato</label>
-                        <input type="file" name="imagen" accept="image/*" required>
-                    </div>
-                    <button type="submit" class="boton-accion">Guardar Plato</button>
-                </form>
+                    <section id="platos" class="bloque-panel">
+                        <h3><i class="fas fa-plus-circle"></i> Nuevo Plato</h3>
+                        <form action="procesar_plato.php" method="POST" class="formulario-admin" enctype="multipart/form-data">
+            <div class="grupo-input">
+                <label>Nombre del Plato</label>
+                <input type="text" name="nombre" required>
+            </div>
+            
+            <div class="grupo-input">
+                <label>Categoría</label>
+                <select name="categoria" required>
+                    <?php
+                    $res_cats = mysqli_query($conexion, "SELECT DISTINCT categoria FROM platos");
+                    while($cat = mysqli_fetch_assoc($res_cats)):
+                    ?>
+                        <option value="<?php echo $cat['categoria']; ?>">
+                            <?php echo ucfirst($cat['categoria']); ?>
+                        </option>
+                    <?php endwhile; ?>
+                </select>
+            </div>
+
+            <div class="grupo-input">
+                <label>Descripción Corta</label>
+                <textarea name="descripcion" rows="2" required></textarea>
+            </div>
+
+            <div class="grupo-input">
+                <label>Precio (€)</label>
+                <input type="number" step="0.01" name="precio" required>
+            </div>
+
+            <div class="grupo-input">
+                <label>Imagen del Plato</label>
+                <input type="file" name="imagen" accept="image/*" required>
+            </div>
+
+            <button type="submit" class="boton-accion">Guardar Plato</button>
+        </form>
             </section>
 
             <section id="gestion-platos" class="bloque-panel">
@@ -184,7 +189,6 @@ $nombreUsuario = $_SESSION['nombre'];
                 <table class="tabla-admin">
                     <thead>
                         <tr>
-                            <th>Imagen</th>
                             <th>Nombre</th>
                             <th>Categoría</th>
                             <th>Precio</th>
@@ -197,7 +201,6 @@ $nombreUsuario = $_SESSION['nombre'];
                         while($p = mysqli_fetch_assoc($res_platos)):
                         ?>
                         <tr>
-                            <td><img src="../img/platos/<?php echo $p['imagen']; ?>" width="50" style="border-radius:5px;"></td>
                             <td><?php echo $p['nombre']; ?></td>
                             <td><?php echo ucfirst($p['categoria']); ?></td>
                             <td><?php echo $p['precio']; ?>€</td>

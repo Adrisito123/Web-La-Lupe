@@ -19,6 +19,5 @@ if (!$conexion) {
     die("Fallo total de conexión: " . mysqli_connect_error());
 }
 
-// Asegurar que las tildes y ñ se lean correctamente
 mysqli_set_charset($conexion, "utf8mb4");
 ?>

@@ -48,6 +48,11 @@ if (isset($_POST['entrar'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <?php if (isset($_GET['msg'])): ?>
+        <div>
+            <?php echo htmlspecialchars($_GET['msg']); ?>
+        </div>
+    <?php endif; ?>
 
    <div class="auth-pantalla">
     <div class="auth-caja">
@@ -56,9 +61,9 @@ if (isset($_POST['entrar'])) {
             <h1>La <span>Lupe</span></h1>
         </div>
 
-        <?php if ($error_msg): ?>
-            <div class="alerta alerta-error">
-                <i class="fas fa-times-circle"></i> <?php echo $error_msg; ?>
+        <?php if (isset($_GET['msg'])): ?>
+            <div class="alerta">
+                <?php echo $_GET['msg']; ?>
             </div>
         <?php endif; ?>
 
@@ -71,7 +76,6 @@ if (isset($_POST['entrar'])) {
         <div class="auth-links">
             <p>¿No tienes cuenta? <a href="registro.php" class="link-cambio">Regístrate</a></p>
             <span class="separador">o</span>
-            <a href="menu.php" class="link-invitado">Ver el menú como invitado</a>
         </div>
     </div>
 </div>
