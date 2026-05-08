@@ -75,7 +75,6 @@ if (isset($_POST['entrar'])) {
 
         <div class="auth-links">
             <p>¿No tienes cuenta? <a href="registro.php" class="link-cambio">Regístrate</a></p>
-            <span class="separador">o</span>
         </div>
     </div>
 </div>
