@@ -1,6 +1,6 @@
 -- Crear la base de datos si no existe
-CREATE DATABASE IF NOT EXISTS `web_la_lupe` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `web_la_lupe`;
+-- CREATE DATABASE IF NOT EXISTS `web_la_lupe` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- USE `web_la_lupe`;
 
 -- Tabla de Usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (

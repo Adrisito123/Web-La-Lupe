@@ -110,8 +110,8 @@ $esAdmin = (isset($_SESSION['rol']) && $_SESSION['rol'] === 'admin');
         <div class="pie-final">
             <p>&copy; 2026 La Lupe - Todos los derechos reservados</p>
             <nav class="links-legales">
-            <a href="licencias_privacidad/politica_privacidad.html">Política de Privacidad</a>
-        </nav>
+                <a href="licencias_privacidad/politica_privacidad.html">Política de Privacidad</a>
+            </nav>
         </div>
     </footer>
 
