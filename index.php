@@ -21,7 +21,7 @@ if (isset($_POST['entrar'])) {
     if ($res && mysqli_num_rows($res) > 0) {
         $usuario = mysqli_fetch_assoc($res);
         
-        // Verificamos la contraseña (asumiendo que usaste password_hash en el registro)
+        // Verificamos la contraseña 
         if (password_verify($password, $usuario['password'])) {
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['nombre'] = $usuario['nombre'];

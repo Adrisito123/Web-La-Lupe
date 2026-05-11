@@ -8,6 +8,11 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 30px;
+        @media (max-width: 768px) {
+            flex-direction: column;
+            text-align: center;
+            gap: 30px;
+        }
     }
     .columna h3 {
         color: v.$color-primario;

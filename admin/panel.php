@@ -21,12 +21,6 @@ $nombreUsuario = $_SESSION['nombre'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="body-admin">
-    <?php if (isset($_GET['status'])): ?>
-        <div class="alerta-admin <?php echo $_GET['status']; ?>">
-            <i class="fas <?php echo ($_GET['status'] == 'success') ? 'fa-check-circle' : 'fa-exclamation-circle'; ?>"></i>
-            <?php echo $_GET['msg']; ?>
-        </div>
-    <?php endif; ?>
     <header class="cabecera-principal">
         <nav class="barra-navegacion contenedor">
             <div class="bloque-izquierdo">

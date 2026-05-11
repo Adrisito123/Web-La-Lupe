@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `platos` (
   `nombre` VARCHAR(100) NOT NULL,
   `descripcion` TEXT,
   `precio` DECIMAL(10, 2) NOT NULL,
-  `imagen` VARCHAR(255) DEFAULT 'default_plato.jpg',
+  `imagen` VARCHAR(255) DEFAULT 'default.jpg',
   `disponible` TINYINT(1) DEFAULT 1
 ) ENGINE=InnoDB;
 
