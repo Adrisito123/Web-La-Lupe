@@ -34,13 +34,13 @@ $nombreUsuario = $_SESSION['nombre'];
 
     <div class="contenedor-admin contenedor">
         
-        <aside class="menu-lateral">
+        <p class="menu-lateral">
             <ul>
                 <li><a href="#pedidos" class="activo"><i class="fas fa-shopping-cart"></i> Pedidos Recientes</a></li>
                 <li><a href="#usuarios"><i class="fas fa-users"></i> Gestionar Usuarios</a></li>
                 <li><a href="#platos"><i class="fas fa-hamburger"></i> Añadir/Editar Platos</a></li>
             </ul>
-        </aside>
+        </p>
 
         <main class="contenido-panel">
             
