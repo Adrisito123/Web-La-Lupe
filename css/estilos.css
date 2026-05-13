@@ -206,26 +206,6 @@ ul {
   transform: scale(1.05);
 }
 
-.alerta {
-  padding: 15px;
-  margin: 20px auto;
-  max-width: 400px;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: bold;
-  animation: slideDown 0.5s ease-out;
-}
-.alerta.error {
-  background-color: rgb(239.2857142857, 177.2142857143, 177.2142857143);
-  color: #c62828;
-  border: 1px solid #c62828;
-}
-.alerta.exito {
-  background-color: rgb(137.6754385965, 211.8245614035, 141.4298245614);
-  color: #2e7d32;
-  border: 1px solid #2e7d32;
-}
-
 .cuadricula-platos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -495,11 +475,8 @@ ul {
 .badge.preparando {
   background-color: #3498db;
 }
-.badge.enviado {
-  background-color: #9b59b6;
-}
-.badge.entregado {
-  background-color: #27ae60;
+.badge.completado {
+  background-color: #14c838;
 }
 
 .btn-tabla {

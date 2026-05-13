@@ -23,8 +23,8 @@ $p = mysqli_fetch_assoc($res);
             
             <form action="actualizar_plato.php" method="POST" class="formulario-admin" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $p['id']; ?>">
-
-                <div class="grupo-input">
+                <input type="hidden" name="imagen_actual" value="<?php echo $p['imagen']; ?>">
+                <img src="../<?php echo $p['imagen']; ?>" width="150">                <div class="grupo-input">
                     <label>Nombre del Plato</label>
                     <input type="text" name="nombre" value="<?php echo $p['nombre']; ?>" required>
                 </div>
