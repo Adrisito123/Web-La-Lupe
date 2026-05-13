@@ -4,6 +4,11 @@ session_start();
 include 'db.php'; 
 $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : "Invitado";
 
+$mostrarModal = false;
+
+if (isset($_POST['btn_pagar'])) {
+    $mostrarModal = true; 
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -82,7 +87,33 @@ $nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : "Invitado";
             <div class="resumen-pedido">
                 <h3>Total: <span><?php echo number_format($total, 2); ?>€</span></h3>
                 <div class="acciones-carrito">
-                    <button class="boton-accion">Pagar Ahora</button>
+                    <form method="POST">
+                        <button type="submit" name="btn_pagar" class="btn-accion">Pagar ahora</button>
+                    </form>
+                    <?php if ($mostrarModal): ?>
+                        <div class="modal-estatico">
+                            <div class="modal-contenido">
+                                <h2>Finalizar Pedido en <span>La Lupe</span></h2>
+                                
+                                <div class="opciones-simuladas">
+                                    <div class="grupo">
+                                        <h3>¿Cómo lo quieres?</h3>
+                                        <p><input type="radio" disabled> A domicilio</p>
+                                        <p><input type="radio" disabled> Servicio en mesa</p>
+                                    </div>
+
+                                    <div class="grupo">
+                                        <h3>¿Cuándo pagas?</h3>
+                                        <p><input type="radio" disabled> Pagar ahora</p>
+                                        <p><input type="radio" disabled> Al recibir el pedido</p>
+                                    </div>
+                                </div>
+
+                                <p class="nota">Esta es una vista previa del sistema de pagos.</p>
+                                <a href="carrito.php" class="btn-volver">Volver al carrito</a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
                     <a href="vaciar_carrito.php" class="btn-gris">Vaciar todo</a>
                 </div>
             </div>
