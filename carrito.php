@@ -1,6 +1,9 @@
 <?php 
 session_start(); 
+
 include 'db.php'; 
+$nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : "Invitado";
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -8,14 +11,32 @@ include 'db.php';
     <meta charset="UTF-8">
     <title>Tu Carrito | La Lupe</title>
     <link rel="stylesheet" href="css/estilos.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
-    
+    <header class="cabecera-principal">
+        <nav class="barra-navegacion contenedor">
+            <div class="bloque-izquierdo">
+                <a href="menu.php" class="logotipo">LA<span>LUPE</span></a>
+                <ul class="lista-enlaces">
+                    <li><a href="menu.php">Inicio</a></li>
+                    <li><a href="carta.php">Ver Carta</a></li>
+                </ul>
+            </div>
+            <div class="bloque-derecho">
+                <a href="perfil.php" class="enlace-cuenta">
+                    <i class="fas fa-user-circle"></i>
+                    <span><?php echo $nombreUsuario; ?></span>
+                </a>
+                <a href="carrito.php" class="boton-carrito">
+                    <i class="fas fa-shopping-basket"></i>
+                </a>
+                <a href="logout.php" class="boton-salir">Cerrar Sesión</a>
+            </div>
+        </nav>
+    </header>
     <div class="contenedor">
-        <div class="navegacion-superior">
-            <a href="carta.php" class="link-volver">← Volver a la carta</a>
-        </div>
-
         <h1>Tu Pedido</h1>
         
         <?php if(empty($_SESSION['carrito'])): ?>

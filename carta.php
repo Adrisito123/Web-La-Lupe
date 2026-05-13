@@ -25,6 +25,7 @@ $res_cats = mysqli_query($conexion, $consulta_cats);
             <div class="bloque-izquierdo">
                 <a href="menu.php" class="logotipo">LA<span>LUPE</span></a>
                 <ul class="lista-enlaces">
+                    <li><a href="menu.php">Inicio</a></li>
                     <li><a href="carta.php">Ver Carta</a></li>
                     <?php if ($esAdmin): ?>
                         <li><a href="admin/panel.php" class="enlace-admin">Panel Control</a></li>

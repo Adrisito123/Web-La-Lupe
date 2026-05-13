@@ -1,6 +1,8 @@
 <?php 
 session_start(); 
 include 'db.php'; 
+$nombreUsuario = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : "Invitado";
+
 
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
@@ -18,14 +20,32 @@ $user = mysqli_fetch_assoc($query);
     <meta charset="UTF-8">
     <title>Mi Perfil | La Lupe</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
+    <header class="cabecera-principal">
+        <nav class="barra-navegacion contenedor">
+            <div class="bloque-izquierdo">
+                <a href="menu.php" class="logotipo">LA<span>LUPE</span></a>
+                <ul class="lista-enlaces">
+                    <li><a href="menu.php">Inicio</a></li>
+                    <li><a href="carta.php">Ver Carta</a></li>
+                </ul>
+            </div>
+            <div class="bloque-derecho">
+                <a href="perfil.php" class="enlace-cuenta">
+                    <i class="fas fa-user-circle"></i>
+                    <span><?php echo $nombreUsuario; ?></span>
+                </a>
+                <a href="carrito.php" class="boton-carrito">
+                    <i class="fas fa-shopping-basket"></i>
+                </a>
+                <a href="logout.php" class="boton-salir">Cerrar Sesión</a>
+            </div>
+        </nav>
+    </header>
     <main class="contenedor-perfil">
-        
-        <div class="barra-superior">
-            <a href="index.php" class="btn-regresar">← Volver a la web</a>
-        </div>
-
         <h1 class="titulo">Mi <span>Perfil</span></h1>
 
         <div class="grid-perfil">
