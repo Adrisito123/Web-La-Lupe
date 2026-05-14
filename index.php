@@ -48,25 +48,11 @@ if (isset($_POST['entrar'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <?php if (isset($_GET['msg'])): ?>
-        <div>
-            <?php echo htmlspecialchars($_GET['msg']); ?>
-        </div>
-    <?php endif; ?>
-
    <div class="auth-pantalla">
     <div class="auth-caja">
         <div class="login-logo">
-            <i class="fas fa-pepper-hot"></i>
             <h1>La <span>Lupe</span></h1>
         </div>
-
-        <?php if (isset($_GET['msg'])): ?>
-            <div class="alerta">
-                <?php echo $_GET['msg']; ?>
-            </div>
-        <?php endif; ?>
-
         <form action="index.php" method="POST">
             <input type="email" name="email" placeholder="Correo electrónico" required>
             <input type="password" name="password" placeholder="Contraseña" required>
