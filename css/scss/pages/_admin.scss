@@ -1,5 +1,4 @@
 @use '../variables' as v;
-
 .body-admin {
     background-color: #f0f2f5;
 }
@@ -8,13 +7,6 @@
     display: flex;
     gap: 30px;
     margin-top: 30px;
-
-    @media (max-width: 768px) {
-        flex-direction: column; 
-        gap: 20px;
-        margin-top: 15px;
-        padding: 0 10px;
-    }
 }
 
 .menu-lateral {
@@ -22,27 +14,6 @@
     background: white;
     height: fit-content;
     padding: 20px;
-
-    @media (max-width: 768px) {
-        width: 100%; 
-        padding: 10px;
-        
-        ul {
-            display: flex;
-            overflow-x: auto;
-            gap: 10px;
-            
-            li {
-                a {
-                    border-bottom: none;
-                    border: 1px solid #eee;
-                    border-radius: 5px;
-                    padding: 8px 15px;
-                }
-            }
-        }
-    }
-
     ul {
         list-style: none;
         padding: 0;
@@ -68,12 +39,7 @@
     background: white;
     padding: 25px;
     margin-bottom: 30px;
-
-    @media (max-width: 768px) {
-        padding: 15px;
-        width: 100%;
-    }
-
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     h3 {
         border-bottom: 2px solid v.$color-primario;
         padding-bottom: 10px;
@@ -84,31 +50,8 @@
 .tabla-admin {
     width: 100%;
     border-collapse: collapse;
-
-    @media (max-width: 768px) {
-        thead {
-            display: none; 
-        }
-
-        tr {
-            display: block;
-            border: 1px solid #eee;
-            margin-bottom: 15px;
-            padding: 10px;
-            border-radius: 8px;
-        }
-
-        td {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #f5f5f5;
-            padding: 10px 5px;
-            text-align: right;
-        }
-    }
-
-    th, td {
+    th,
+    td {
         padding: 12px;
         text-align: left;
         border-bottom: 1px solid #eee;
@@ -121,12 +64,6 @@
 .formulario-admin {
     display: grid;
     gap: 15px;
-    max-width: 500px;
-
-    @media (max-width: 768px) {
-        max-width: 100%; 
-    }
-
     .grupo-input {
         display: flex;
         flex-direction: column;
@@ -134,13 +71,106 @@
             font-size: 14px;
             margin-bottom: 5px;
         }
-        input, select, textarea {
-            padding: 10px;
+        input,
+        select {
+            padding: 8px;
             border: 1px solid #ddd;
-            font-size: 16px; 
         }
     }
+}
 
+.btn-editar {
+    color: #3498db;
+    margin-right: 10px;
+}
+
+.btn-borrar {
+    color: #e74c3c;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    &.pendiente {
+        background-color: #f39c12;
+    }
+    &.preparando {
+        background-color: #3498db;
+    }
+    &.completado {
+        background-color: #14c838;
+    }
+}
+
+.btn-tabla {
+    background: #eee;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+    color: #333;
+}
+
+.rol-etiqueta {
+    padding: 2px 8px;
+    font-size: 11px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    &.admin {
+        background: #34495e;
+        color: #f1c40f;
+    }
+    &.user {
+        background: #eee;
+        color: #7f8c8d;
+    }
+}
+
+.btn-accion {
+    padding: 5px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    &.azul {
+        color: #3498db;
+        border: 1px solid #3498db;
+    }
+    &.rojo {
+        color: #e74c3c;
+        border: 1px solid #e74c3c;
+        margin-left: 5px;
+    }
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.selector-rol {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    &:focus {
+        border-color: v.$color-primario;
+        outline: none;
+    }
+}
+
+.formulario-admin {
+    max-width: 500px;
+    textarea {
+        padding: 8px;
+        border: 1px solid #ddd;
+        font-family: inherit;
+        resize: none;
+    }
     .boton-accion {
         background-color: v.$color-primario;
         color: white;
@@ -152,14 +182,6 @@
     }
 }
 
-.btn-accion {
-    padding: 8px 12px;
-    @media (max-width: 768px) {
-        display: inline-block;
-        margin-top: 5px;
-    }
-}
-
 .alerta-admin {
     padding: 15px;
     margin-bottom: 20px;
@@ -168,4 +190,14 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    &.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+    &.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
 }
